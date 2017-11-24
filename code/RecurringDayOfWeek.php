@@ -1,5 +1,7 @@
 <?php
 
+namespace SilverStripe\EventCalendar;
+
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\DataList;
 use SilverStripe\Security\Permission;
@@ -13,7 +15,7 @@ class RecurringDayOfWeek extends DataObject {
 	private static $default_sort = "Value ASC";
 	
 	private static $belongs_many_many = array (
-		'CalendarEvent' => 'CalendarEvent'
+		'CalendarEvent' => CalendarEvent::class
 	);
 	
 	static function create_default_records() {
@@ -26,7 +28,7 @@ class RecurringDayOfWeek extends DataObject {
 
 	public function requireDefaultRecords() {
 		parent::requireDefaultRecords();
-		$records = DataList::create("RecurringDayOfWeek");
+		$records = DataList::create(RecurringDayOfWeek::class);
 		if(!$records->exists()) {
 			self::create_default_records();
 		}

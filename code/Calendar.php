@@ -1,11 +1,15 @@
 <?php
 
+namespace SilverStripe\EventCalendar;
+
 use SilverStripe\View\Requirements;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use Page;
+use PageController;
 
 class Calendar extends Page {
 
@@ -19,20 +23,20 @@ class Calendar extends Page {
 	);
 	
 	private static $has_many = array (
-		'Announcements' => 'CalendarAnnouncement',
-		'Feeds' => 'ICSFeed'
+		'Announcements' => CalendarAnnouncement::class,
+		'Feeds' => ICSFeed::class
 	);
 
 	private static $many_many = array (
-		'NestedCalendars' => 'Calendar'
+		'NestedCalendars' => Calendar::class
 	);
 
 	private static $belongs_many_many = array (
-		'ParentCalendars' => 'Calendar'
+		'ParentCalendars' => Calendar::class
 	);
 
 	private static $allowed_children = array (
-		'CalendarEvent'
+		CalendarEvent::class
 	);
 	
 	private static $defaults = array (

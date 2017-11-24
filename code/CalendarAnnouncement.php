@@ -1,5 +1,7 @@
 <?php
 
+namespace SilverStripe\EventCalendar;
+
 class CalendarAnnouncement extends CalendarDateTime {
 
 	private static $db = array (

@@ -1,5 +1,7 @@
 <?php
 
+namespace SilverStripe\EventCalendar;
+
 use SilverStripe\Core\Extensible;
 use SilverStripe\Core\Injector\Injectable;
 use SilverStripe\Core\Config\Configurable;

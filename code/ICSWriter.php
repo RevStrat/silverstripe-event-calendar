@@ -1,4 +1,7 @@
 <?php
+
+namespace SilverStripe\EventCalendar;
+
 /**
  * A simple ICS writer.
  *

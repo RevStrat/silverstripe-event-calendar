@@ -1,5 +1,7 @@
 <?php
 
+namespace SilverStripe\EventCalendar;
+
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\DataList;
 use SilverStripe\Security\Permission;
@@ -11,7 +13,7 @@ class RecurringException extends DataObject {
 	);
 	
 	private static $has_one = array (
-		'CalendarEvent' => 'CalendarEvent'
+		'CalendarEvent' => CalendarEvent::class
 	);
 
 

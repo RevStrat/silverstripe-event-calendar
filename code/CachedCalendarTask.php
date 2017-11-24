@@ -1,5 +1,7 @@
 <?php
 
+namespace SilverStripe\EventCalendar;
+
 use SilverStripe\Control\CliController;
 
 class CachedCalendarTask extends CliController {

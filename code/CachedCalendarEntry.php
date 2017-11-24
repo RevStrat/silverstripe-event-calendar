@@ -1,5 +1,7 @@
 <?php
 
+namespace SilverStripe\EventCalendar;
+
 use SilverStripe\ORM\DataObject;
 
 class CachedCalendarEntry extends DataObject {

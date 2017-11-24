@@ -1,4 +1,7 @@
 <?php 
+
+namespace SilverStripe\EventCalendar;
+
 class iCal {  
 
     private $ics_files = array(); 

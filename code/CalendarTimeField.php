@@ -1,5 +1,7 @@
 <?php
 
+namespace SilverStripe\EventCalendar;
+
 use SilverStripe\Forms\TimeField;
 
 class CalendarTimeField extends TimeField {

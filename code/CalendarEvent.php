@@ -1,5 +1,7 @@
 <?php
 
+namespace SilverStripe\EventCalendar;
+
 use SilverStripe\View\Requirements;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\GridField\GridField;
@@ -11,6 +13,8 @@ use SilverStripe\Forms\LabelField;
 use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\CheckboxSetField;
 use SilverStripe\ORM\DataList;
+use Page;
+use PageController;
 
 class CalendarEvent extends Page {
 	
@@ -28,20 +32,20 @@ class CalendarEvent extends Page {
 	);
 	
 	private static $has_many = array (
-		'DateTimes' => 'CalendarDateTime',
-		'Exceptions' => 'RecurringException'
+		'DateTimes' => CalendarDateTime::class,
+		'Exceptions' => RecurringException::class
 	);
 	
 	private static $many_many = array (
-		'RecurringDaysOfWeek' => 'RecurringDayOfWeek',
-		'RecurringDaysOfMonth' => 'RecurringDayOfMonth'
+		'RecurringDaysOfWeek' => RecurringDayOfWeek::class,
+		'RecurringDaysOfMonth' => RecurringDayOfMonth::class
 	);
 
 	private static $icon = "event_calendar/images/event";	
 
 	private static $description = "An individual event entry";
 
-	private static $datetime_class = "CalendarDateTime";
+	private static $datetime_class = CalendarDateTime::class;
 	
 	private static $can_be_root = false;
 

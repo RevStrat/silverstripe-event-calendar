@@ -1,5 +1,7 @@
 <?php
 
+namespace SilverStripe\EventCalendar;
+
 class CalendarUtil {
 
 	const ONE_DAY = "OneDay";
