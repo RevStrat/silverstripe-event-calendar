@@ -165,7 +165,6 @@ class CalendarDateTime extends DataObject {
 
 	public function getFormattedStartDate() {
 	   if(!$this->StartDate) return "--";
-	   error_log($this->obj('StartDate'));
 	   return CalendarUtil::get_date_format() == "mdy" ? $this->obj('StartDate')->Format('MM-dd-Y') : $this->obj('StartDate')->Format('dd-MM-Y');
 	}
 	
