@@ -1,5 +1,6 @@
 <?php
 
+use SilverStripe\View\ViewableData;
 
 class CalendarWidget extends ViewableData {
 	

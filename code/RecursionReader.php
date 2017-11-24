@@ -1,6 +1,14 @@
 <?php
 
-class RecursionReader extends Object {
+use SilverStripe\Core\Extensible;
+use SilverStripe\Core\Injector\Injectable;
+use SilverStripe\Core\Config\Configurable;
+
+class RecursionReader {
+
+	use Extensible;
+	use Injectable;
+	use Configurable;
 	
 	const DAY = 86400;
 

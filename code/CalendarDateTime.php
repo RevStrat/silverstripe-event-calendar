@@ -1,5 +1,13 @@
 <?php
 
+use SilverStripe\ORM\DataObject;
+use SilverStripe\Security\Member;
+use SilverStripe\Security\Permission;
+use SilverStripe\Forms\DateField;
+use SilverStripe\Forms\TimeField;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\FieldList;
+
 class CalendarDateTime extends DataObject {
 	
 	private static $db = array (		
@@ -30,7 +38,6 @@ class CalendarDateTime extends DataObject {
 	private static $offset = "+00:00";
 
 	public function getCMSFields() {
-		DateField::set_default_config('showcalendar', true);
 		$f = new FieldList(
 			new DateField('StartDate',_t('CalendarDateTime.STARTDATE','Start date')),
 			new DateField('EndDate',_t('CalendarDateTime.ENDDATE','End date')),
@@ -158,12 +165,13 @@ class CalendarDateTime extends DataObject {
 
 	public function getFormattedStartDate() {
 	   if(!$this->StartDate) return "--";
-	   return CalendarUtil::get_date_format() == "mdy" ? $this->obj('StartDate')->Format('m-d-Y') : $this->obj('StartDate')->Format('d-m-Y');
+	   error_log($this->obj('StartDate'));
+	   return CalendarUtil::get_date_format() == "mdy" ? $this->obj('StartDate')->Format('MM-dd-Y') : $this->obj('StartDate')->Format('dd-MM-Y');
 	}
 	
 	public function getFormattedEndDate() {
 	   if(!$this->EndDate) return "--";
-	   return CalendarUtil::get_date_format() == "mdy" ? $this->obj('EndDate')->Format('m-d-Y') : $this->obj('EndDate')->Format('d-m-Y');
+	   return CalendarUtil::get_date_format() == "mdy" ? $this->obj('EndDate')->Format('MM-dd-Y') : $this->obj('EndDate')->Format('dd-MM-Y');
 	}
 
 	public function getFormattedStartTime() {
@@ -199,7 +207,7 @@ class CalendarDateTime extends DataObject {
 		return $dates;
 	}
 	
-	public function canCreate($member = null) {
+	public function canCreate($member = null, $context = []) {
 		if (!$member) {
 			$member = Member::currentUser();
 		}

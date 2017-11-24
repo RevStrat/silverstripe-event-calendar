@@ -2,7 +2,11 @@
 class iCal {  
 
     private $ics_files = array(); 
-     
+    
+    function __construct($ics_files) {
+        $this->ics_files = $ics_files;
+    }
+    
     function iCal($ics_files) { 
         $this->ics_files = $ics_files;
     } 

@@ -1,5 +1,9 @@
 <?php
 
+use SilverStripe\ORM\DataObject;
+use SilverStripe\ORM\DataList;
+use SilverStripe\Security\Permission;
+
 class RecurringDayOfWeek extends DataObject {
 
 	private static $db = array (
@@ -39,7 +43,7 @@ class RecurringDayOfWeek extends DataObject {
 	}
 	
 
-	public function canCreate($member = null) {
+	public function canCreate($member = null, $context = []) {
 	    return Permission::check("CMS_ACCESS_CMSMain");
 	}
 	

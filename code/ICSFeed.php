@@ -1,5 +1,7 @@
 <?php
 
+use SilverStripe\ORM\DataObject;
+
 class ICSFeed extends DataObject {
 	
 	private static $db = array (

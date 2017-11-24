@@ -1,5 +1,12 @@
 <?php
 
+use SilverStripe\View\Requirements;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\NumericField;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+
 class Calendar extends Page {
 
 	private static $db = array(
@@ -467,7 +474,7 @@ class Calendar extends Page {
 	
 }
 
-class Calendar_Controller extends Page_Controller {
+class Calendar_Controller extends PageController {
 	
 	private static $allowed_actions = array (
 		'show',

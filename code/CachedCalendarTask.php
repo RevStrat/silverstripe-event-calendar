@@ -1,6 +1,8 @@
 <?php
 
-class CachedCalendarTask extends HourlyTask {
+use SilverStripe\Control\CliController;
+
+class CachedCalendarTask extends CliController {
 
 	public function process() {
 		increase_time_limit_to(300);

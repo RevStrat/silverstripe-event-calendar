@@ -1,5 +1,17 @@
 <?php
 
+use SilverStripe\View\Requirements;
+use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldConfig_RecordEditor;
+use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\OptionsetField;
+use SilverStripe\Forms\FieldGroup;
+use SilverStripe\Forms\LabelField;
+use SilverStripe\Forms\DropdownField;
+use SilverStripe\Forms\CheckboxSetField;
+use SilverStripe\ORM\DataList;
+
 class CalendarEvent extends Page {
 	
 	private static $db = array (
@@ -148,7 +160,7 @@ class CalendarEvent extends Page {
 
 }
 
-class CalendarEvent_Controller extends Page_Controller {
+class CalendarEvent_Controller extends PageController {
 
 	public function init() {
 		parent::init();
